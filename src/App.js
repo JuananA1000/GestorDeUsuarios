@@ -1,5 +1,6 @@
 import Input from './components/Input';
 import Card from './components/Card';
+import Container from './components/Container';
 
 // Custom HOOKS
 import useFormulario from './hooks/useFormulario';
@@ -12,23 +13,27 @@ function App() {
     console.log(formulario);
 
     return (
-        <Card>
-            <form>
-                <Input
-                    label='Nombre'
-                    name='nombre'
-                    value={formulario.nombre}
-                    onChange={handleChange}
-                />
+        <Container>
+            <Card>
+                <div style={{ paddng: 20 }}>
+                    <form>
+                        <Input
+                            label='Nombre'
+                            name='nombre'
+                            value={formulario.nombre}
+                            onChange={handleChange}
+                        />
 
-                <Input
-                    label='Apellido'
-                    name='apellido'
-                    value={formulario.apellido}
-                    onChange={handleChange}
-                />
-            </form>
-        </Card>
+                        <Input
+                            label='Apellido'
+                            name='apellido'
+                            value={formulario.apellido}
+                            onChange={handleChange}
+                        />
+                    </form>
+                </div>
+            </Card>
+        </Container>
     );
 }
 
