@@ -1,31 +1,34 @@
-import Input from "./components/Input";
+import Input from './components/Input';
+import Card from './components/Card';
 
 // Custom HOOKS
-import useFormulario from "./hooks/useFormulario";
+import useFormulario from './hooks/useFormulario';
 
 function App() {
     const [formulario, handleChange] = useFormulario({
-        nombre: "",
-        apellido: "",
+        nombre: '',
+        apellido: '',
     });
     console.log(formulario);
 
     return (
-        <form>
-            <Input
-                label="Nombre"
-                name="nombre"
-                value={formulario.nombre}
-                onChange={handleChange}
-            />
+        <Card>
+            <form>
+                <Input
+                    label='Nombre'
+                    name='nombre'
+                    value={formulario.nombre}
+                    onChange={handleChange}
+                />
 
-            <Input
-                label="Apellido"
-                name="apellido"
-                value={formulario.apellido}
-                onChange={handleChange}
-            />
-        </form>
+                <Input
+                    label='Apellido'
+                    name='apellido'
+                    value={formulario.apellido}
+                    onChange={handleChange}
+                />
+            </form>
+        </Card>
     );
 }
 
