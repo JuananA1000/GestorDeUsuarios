@@ -15,7 +15,7 @@ function App() {
     return (
         <Container>
             <Card>
-                <div style={{ paddng: 20 }}>
+                <div style={{ padding: 20 }}>
                     <form>
                         <Input
                             label='Nombre'
