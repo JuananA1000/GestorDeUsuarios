@@ -1,6 +1,7 @@
 import Input from './components/Input';
 import Card from './components/Card';
 import Container from './components/Container';
+import Button from './components/Button';
 
 // Custom HOOKS
 import useFormulario from './hooks/useFormulario';
@@ -9,6 +10,7 @@ function App() {
     const [formulario, handleChange] = useFormulario({
         nombre: '',
         apellido: '',
+        email: '',
     });
     console.log(formulario);
 
@@ -30,6 +32,14 @@ function App() {
                             value={formulario.apellido}
                             onChange={handleChange}
                         />
+
+                        <Input
+                            label='E-mail'
+                            name='email'
+                            value={formulario.email}
+                            onChange={handleChange}
+                        />
+                        <Button>Enviar</Button>
                     </form>
                 </div>
             </Card>
