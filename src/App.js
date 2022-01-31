@@ -20,52 +20,53 @@ function App() {
 
     const submit = (e) => {
         e.preventDefault();
-
         setUsuarios([...usuarios, formulario]);
-
         limpiarFormulario();
     };
 
     return (
-        <Container>
-            <Card>
-                <div style={{ padding: 20 }}>
-                    <form onSubmit={submit}>
-                        <Input
-                            label='Nombre'
-                            name='nombre'
-                            value={formulario.nombre}
-                            onChange={handleChange}
-                        />
-
-                        <Input
-                            label='Apellido'
-                            name='apellido'
-                            value={formulario.apellido}
-                            onChange={handleChange}
-                        />
-
-                        <Input
-                            label='E-mail'
-                            name='email'
-                            value={formulario.email}
-                            onChange={handleChange}
-                        />
-                        <Button>Enviar</Button>
-                    </form>
-                </div>
-            </Card>
-            <Card>
-                <ul>
-                    {usuarios.map((usuario) => (
-                        <li
-                            key={
-                                usuario.email
-                            }>{`${usuario.nombre} ${usuario.apellido}: ${usuario.email}`}</li>
-                    ))}
-                </ul>
-            </Card>
-        </Container>
+        <div style={{ marginTop: '15%' }}>
+            <Container>
+                <Card>
+                    <div style={{ padding: 20 }}>
+                        <form onSubmit={submit}>
+                            <Input
+                                label='Nombre'
+                                name='nombre'
+                                value={formulario.nombre}
+                                onChange={handleChange}
+                                placeholder='Nombre'
+                            />
+                            <Input
+                                label='Apellido'
+                                name='apellido'
+                                value={formulario.apellido}
+                                onChange={handleChange}
+                                placeholder='Apellido'
+                            />
+                            <Input
+                                label='E-mail'
+                                name='email'
+                                value={formulario.email}
+                                onChange={handleChange}
+                                placeholder='E-mail'
+                            />
+                            <Button>Enviar</Button>
+                        </form>
+                    </div>
+                </Card>
+                <Card>
+                    <ul>
+                        {usuarios.map((usuario) => (
+                            <li
+                                key={
+                                    usuario.email
+                                }>{`${usuario.nombre} ${usuario.apellido}: ${usuario.email}`}</li>
+                        ))}
+                    </ul>
+                </Card>
+            </Container>
+        </div>
     );
 }
 
