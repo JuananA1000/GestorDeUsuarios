@@ -1,3 +1,6 @@
+import { useState } from 'react';
+
+// Custom COMPONENTS
 import Input from './components/Input';
 import Card from './components/Card';
 import Container from './components/Container';
@@ -7,18 +10,27 @@ import Button from './components/Button';
 import useFormulario from './hooks/useFormulario';
 
 function App() {
-    const [formulario, handleChange] = useFormulario({
+    const [usuarios, setUsuarios] = useState([]);
+
+    const [formulario, handleChange, limpiarFormulario] = useFormulario({
         nombre: '',
         apellido: '',
         email: '',
     });
-    console.log(formulario);
+
+    const submit = (e) => {
+        e.preventDefault();
+
+        setUsuarios([...usuarios, formulario]);
+
+        limpiarFormulario();
+    };
 
     return (
         <Container>
             <Card>
                 <div style={{ padding: 20 }}>
-                    <form>
+                    <form onSubmit={submit}>
                         <Input
                             label='Nombre'
                             name='nombre'
@@ -42,6 +54,16 @@ function App() {
                         <Button>Enviar</Button>
                     </form>
                 </div>
+            </Card>
+            <Card>
+                <ul>
+                    {usuarios.map((usuario) => (
+                        <li
+                            key={
+                                usuario.email
+                            }>{`${usuario.nombre} ${usuario.apellido}: ${usuario.email}`}</li>
+                    ))}
+                </ul>
             </Card>
         </Container>
     );

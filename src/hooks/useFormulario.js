@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState } from 'react';
 
 const useFormulario = (inicial) => {
     const [formulario, setFormulario] = useState(inicial);
@@ -10,7 +10,11 @@ const useFormulario = (inicial) => {
         });
     };
 
-    return [formulario, handleChange];
+    const limpiarFormulario = () => {
+        setFormulario(inicial); // Seteamos el formulario con las propiedades iniciales
+    };
+
+    return [formulario, handleChange, limpiarFormulario];
 };
 
 export default useFormulario;
