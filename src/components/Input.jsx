@@ -1,4 +1,4 @@
-import './Input.css';
+import './assets/css/Input.css';
 
 const Input = ({ label, ...rest }) => {
     return (
