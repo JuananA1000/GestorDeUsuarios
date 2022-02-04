@@ -26,6 +26,7 @@ function App() {
                     <ul>
                         {usuarios.map((x) => (
                             <li
+                                style={{ listStyle: 'none' }}
                                 key={
                                     x.email
                                 }>{`${x.nombre} ${x.apellido}: ${x.email}`}</li>
